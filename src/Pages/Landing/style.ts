@@ -52,7 +52,7 @@ export const Title = styled.h1`
   font-weight: 800;
   letter-spacing: 0.2rem;
   font-size: 12.8rem;
-  @media (max-width: 1370px) {
+  @media (max-width: 1219px) {
     text-align: center;
   }
   @media (max-width: 660px) {
@@ -70,7 +70,7 @@ export const Subtitle = styled.h1`
   letter-spacing: 0.2rem;
   font-size: 3.6rem;
   width: 50rem;
-  @media (max-width: 1370px) {
+  @media (max-width: 1219px) {
     text-align: center;
   }
   @media (max-width: 660px) {
@@ -85,7 +85,7 @@ export const Column = styled.div`
   display: flex;
   flex-direction: column;
   animation: ${fromLeft} 0.5s;
-  @media (max-width: 1370px) {
+  @media (max-width: 1219px) {
     align-items: center;
   }
 `;
@@ -106,7 +106,7 @@ export const Image = styled.img`
     width: 50rem;
     height: 50rem;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1219px) {
     display: none;
   }
 `;
