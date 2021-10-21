@@ -1,5 +1,33 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
+
+const fromLeft = keyframes`
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  50% {
+    opacity: .3;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
+
+const fromRight = keyframes`
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  50% {
+    opacity: .3;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
 
 export const Container = styled.div`
   width: 100vw;
@@ -12,6 +40,10 @@ export const Container = styled.div`
   background-image: url("/images/wave.svg");
   background-repeat: no-repeat;
   background-position-y: bottom;
+
+  @media (max-height: 800px) {
+    padding-top: 1rem;
+  }
 `;
 
 export const Title = styled.h1`
@@ -20,8 +52,14 @@ export const Title = styled.h1`
   font-weight: 800;
   letter-spacing: 0.2rem;
   font-size: 12.8rem;
-  @media (max-width: 1220px) {
+  @media (max-width: 1370px) {
     text-align: center;
+  }
+  @media (max-width: 660px) {
+    font-size: 8rem;
+  }
+  @media (max-width: 510px) {
+    font-size: 6rem;
   }
 `;
 
@@ -32,15 +70,22 @@ export const Subtitle = styled.h1`
   letter-spacing: 0.2rem;
   font-size: 3.6rem;
   width: 50rem;
-  @media (max-width: 1220px) {
+  @media (max-width: 1370px) {
     text-align: center;
+  }
+  @media (max-width: 660px) {
+    font-size: 2rem;
+  }
+  @media (max-width: 510px) {
+    width: 80%;
   }
 `;
 
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
-  @media (max-width: 1220px) {
+  animation: ${fromLeft} 0.5s;
+  @media (max-width: 1370px) {
     align-items: center;
   }
 `;
@@ -54,10 +99,14 @@ export const Row = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 50rem;
-  height: 50rem;
-
-  @media (max-width: 1220px) {
+  width: 60rem;
+  height: 60rem;
+  animation: ${fromRight} 0.5s;
+  @media (max-width: 1370px) {
+    width: 50rem;
+    height: 50rem;
+  }
+  @media (max-width: 768px) {
     display: none;
   }
 `;
