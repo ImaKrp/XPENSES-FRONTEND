@@ -6,7 +6,7 @@ import {
   Column,
   Row,
   Image,
-  Login,
+  SingIn,
 } from "./style";
 
 export const Landing: React.FC = () => {
@@ -20,7 +20,7 @@ export const Landing: React.FC = () => {
             A simple app trying to make your life easier as possible helping
             with your finances.
           </Subtitle>
-          <Login to="/">Get Started</Login>
+          <SingIn to="/signin">Get Started</SingIn>
         </Column>
         <Image src="/images/Dashboard.png" />
       </Row>

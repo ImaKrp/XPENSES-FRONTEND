@@ -111,7 +111,7 @@ export const Image = styled.img`
   }
 `;
 
-export const Login = styled(Link)`
+export const SingIn = styled(Link)`
   width: 18rem;
   height: 5rem;
   display: flex;

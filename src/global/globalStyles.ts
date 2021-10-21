@@ -34,7 +34,8 @@ html {
   /* Color */
   --purple: #9474ee;
 
-  --red: #9e3145;
+  --red: #CF6679;
+  --warning: #9e3145;
 
   font-size: 62.5%;
 
