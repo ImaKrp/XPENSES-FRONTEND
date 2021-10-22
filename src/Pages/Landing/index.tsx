@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Container,
   Title,
@@ -10,6 +10,10 @@ import {
 } from "./style";
 
 export const Landing: React.FC = () => {
+  useEffect(() => {
+    document.title = "XPENSEShelper";
+  }, []);
+
   return (
     <Container>
       <Row>

@@ -60,9 +60,10 @@ export const Menu = styled(Link)`
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
   animation: ${fromLeft} 0.5s;
-
+  cursor: pointer;
   > span {
     font-size: 2rem;
+    cursor: pointer;
   }
 `;
 
@@ -82,7 +83,7 @@ export const Redirect = styled(Link)`
 
   &:hover {
     opacity: 0.7;
-    box-shadow: 0 0 0.8rem 0 rgba(128, 128, 128, 0.4);
+    box-shadow: 0 0 0.8rem 0 rgba(0, 0, 0, 0.6);
   }
 `;
 

@@ -1,11 +1,12 @@
 import styled, { keyframes } from "styled-components";
+
 interface IInputProps {
   isOnError: string;
 }
 
-const fromRight = keyframes`
+const fromLeft = keyframes`
   0% {
-    transform: translateX(100px);
+    transform: translateX(-100px);
     opacity: 0;
   }
   50% {
@@ -132,7 +133,7 @@ export const Title = styled.h1`
   font-size: 3.6rem;
   width: 50rem;
   text-align: center;
-  animation: ${fromRight} 0.5s;
+  animation: ${fromLeft} 0.5s;
   @media (max-width: 660px) {
     width: 80%;
   }

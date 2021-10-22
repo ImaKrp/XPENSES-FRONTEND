@@ -67,7 +67,6 @@ export const Subtitle = styled.h1`
   color: var(--w400);
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  letter-spacing: 0.2rem;
   font-size: 3.6rem;
   width: 50rem;
   @media (max-width: 1219px) {
