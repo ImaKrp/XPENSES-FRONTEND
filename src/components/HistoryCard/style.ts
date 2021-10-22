@@ -35,10 +35,17 @@ export const Container = styled.div<IValueProps>`
     flex-grow: 1;
     font-size: 1.8rem;
     color: var(--white);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     > span {
+      max-width: 100%;
       font-size: 1.8rem;
       color: rgb(124, 124, 124);
       text-transform: capitalize;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 

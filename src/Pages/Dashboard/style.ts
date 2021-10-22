@@ -18,7 +18,6 @@ export const Container = styled.div`
   width: 100vw;
   min-height: calc(100vh - 8.4rem);
   display: flex;
-  flex-wrap: wrap;
   padding: 0 3rem 3rem 3rem;
   align-items: center;
   justify-content: space-between;
@@ -27,6 +26,7 @@ export const Container = styled.div`
   @media (max-width: 750px) {
     padding: 2rem 3rem;
     align-items: flex-start;
+    flex-wrap: wrap;
   }
 `;
 
@@ -47,8 +47,8 @@ export const Column = styled.div`
 `;
 
 export const History = styled.div`
+  min-width: 30rem;
   flex-grow: 1;
-  min-width: 37rem;
   height: calc(100vh - 11.4rem);
   display: flex;
   flex-direction: column;
