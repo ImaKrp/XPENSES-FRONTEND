@@ -22,7 +22,7 @@ interface IDataProps {
 
 export const Dashboard: React.FC = () => {
   const { user } = useSession();
-  const userCurrency = getCurrency(user.region);
+  const userCurrency = getCurrency(user?.region);
   const [transactions, setTransactions] = useState<IDataProps[]>([]);
 
   const deleteTransaction = async (id: string) => {
