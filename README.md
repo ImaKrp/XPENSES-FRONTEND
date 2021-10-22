@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+# XPENSES - `with React.js`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> This is a small personal project, helping to track your finances:
 
-## Available Scripts
+- [XPENSES - `with React.js`](#xpenses---with-reactjs)
+  - [🔨 ｜ Install Dependencies](#--install-dependencies)
+  - [📥 ｜ Database](#--database)
+  - [👨‍💻 ｜ Launch Frontend](#--launch-frontend)
+  - [📝 ｜ License](#--license)
 
-In the project directory, you can run:
+## 🔨 ｜ Install Dependencies
 
-### `yarn start`
+> infos:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. This one is really simple, let's go for it.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Install all Dependencies:
 
-### `yarn test`
+```sh
+yarn
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+And you're ready to go.
 
-### `yarn build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📥 ｜ Database
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> infos:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. The database is at the backend so you need to download it.
+2. [XPENSE-Backend](https://github.com/ImaKrp/XPENSES-BACKEND).
+3. You can just clone it and follow the read me.
 
-### `yarn eject`
+Clone XPENSE-backend:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```sh
+git clone https://github.com/ImaKrp/XPENSES-BACKEND.git
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Now you read it's [README.md](https://github.com/ImaKrp/XPENSES-BACKEND/blob/main/README.md).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 👨‍💻 ｜ Launch Frontend
 
-## Learn More
+> infos:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. On compile it will start the frontend on localhost.
+2. It will be acessible at http://localhost:3000.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sh
+yarn start
+```
+
+---
+
+## 📝 ｜ License
+
+Copyright © 2021 [Júlio Carvalho Gonçalves](https://github.com/ImaKrp).
+This project is [GNU General Public License v3.0](https://github.com/ImaKrp/XPENSES-FRONTEND/blob/master/LICENSE) licensed.
