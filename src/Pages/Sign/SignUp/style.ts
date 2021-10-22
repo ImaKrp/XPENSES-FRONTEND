@@ -53,7 +53,7 @@ export const Card = styled.form`
   align-items: center;
   gap: 1.8rem;
   justify-content: center;
-  box-shadow: 0 1.2rem 1.6rem 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1.2rem 1.6rem 0 rgba(0, 0, 0, 0.8);
   border-radius: 0.8rem;
   padding: 2.5rem;
   animation: ${fromBottom} 0.5s;

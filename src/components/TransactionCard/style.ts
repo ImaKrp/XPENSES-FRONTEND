@@ -20,13 +20,14 @@ const fromLeft = keyframes`
 
 export const Container = styled.form`
   width: 100%;
+  border-radius: 1rem;
   height: fit-content;
   display: flex;
   flex-direction: column;
   padding: 2rem;
   gap: 0.8rem;
   animation: ${fromLeft} 0.5s;
-  box-shadow: 0 0.6rem 1.6rem 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.6rem 1.6rem 0 rgba(0, 0, 0, 0.8);
 `;
 
 export const Title = styled.h3`

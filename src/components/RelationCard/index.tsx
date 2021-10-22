@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Income, Expense, Amount, Total } from "./style";
 
 interface IRealtionProps {
@@ -8,22 +8,27 @@ interface IRealtionProps {
   currency: string;
 }
 
-export const RelationCard: React.FC = () => {
+export const RelationCard: React.FC<IRealtionProps> = ({
+  incomeValue,
+  expenseValue,
+  totalBalance,
+  currency,
+}) => {
   return (
     <Container>
       <div>
         <Income>
           INCOME
-          <Amount>Value</Amount>
+          <Amount>{incomeValue}</Amount>
         </Income>
         <Expense>
           EXPENSE
-          <Amount>Value</Amount>
+          <Amount>{expenseValue}</Amount>
         </Expense>
       </div>
       <div>
-        <Total>Valor</Total>
-        <span>CUR</span>
+        <Total>{totalBalance}</Total>
+        <span>{currency}</span>
       </div>
       <span>Total Balance</span>
     </Container>

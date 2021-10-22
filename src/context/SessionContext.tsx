@@ -1,4 +1,4 @@
-import React, { createContext, useState, useMemo } from "react";
+import React, { createContext, useState, useMemo, useEffect } from "react";
 import { api } from "../api/api";
 
 export interface ISessionContext {
@@ -6,6 +6,7 @@ export interface ISessionContext {
   signIn(email: string, password: string): Promise<string | void>;
   signUp(email: string, password: string): Promise<string | void>;
   signOut(): void;
+  refreshUser(): void;
   token: string | null;
   user: User;
 }
@@ -28,16 +29,25 @@ export const SessionContext = createContext<ISessionContext>(
 );
 
 export const SessionProvider: React.FC = ({ children }) => {
-  const [logged, setLogged] = useState<boolean>(() => {
-    const isLogged = localStorage.getItem("@xpense:user");
-    return !!isLogged;
-  });
   const token = localStorage.getItem("@xpense:token") ?? "";
+  const [changed, setChanged] = useState<boolean>(false);
 
   const user = useMemo(() => {
-    const storedUser = localStorage.getItem("@xpense:user");
-    if (storedUser) return JSON.parse(storedUser);
-  }, []);
+    if (changed || !changed) {
+      const storedUser = localStorage.getItem("@xpense:user");
+      if (storedUser) return JSON.parse(storedUser);
+    }
+  }, [changed]);
+
+  useEffect(() => {
+    if (!user || !token) return;
+    api.defaults.headers.common["Authorization"] = `Bearer ${JSON.parse(
+      token
+    )}`;
+    setLogged(true);
+  }, [user, token]);
+
+  const [logged, setLogged] = useState<boolean>(false);
 
   const signIn = async (
     email: string,
@@ -56,7 +66,6 @@ export const SessionProvider: React.FC = ({ children }) => {
     localStorage.setItem("@xpense:token", JSON.stringify(data.token));
 
     api.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
-
     setLogged(true);
   };
 
@@ -82,9 +91,13 @@ export const SessionProvider: React.FC = ({ children }) => {
     setLogged(false);
   };
 
+  const refreshUser = (): void => {
+    setChanged(!changed);
+  };
+
   return (
     <SessionContext.Provider
-      value={{ logged, signIn, signOut, signUp, token, user }}
+      value={{ logged, signIn, signOut, signUp, refreshUser, token, user }}
     >
       {children}
     </SessionContext.Provider>

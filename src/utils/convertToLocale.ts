@@ -1,6 +1,6 @@
 import array from "./RelationLocaleCurrency";
 
-const getcurrency = (locationVar: string): string => {
+export const getCurrency = (locationVar: string): string => {
   const i = array.findIndex((obj) => obj.location === locationVar);
   if (array[i]?.currency) {
     return array[i].currency;
@@ -8,11 +8,21 @@ const getcurrency = (locationVar: string): string => {
   return "USD";
 };
 
-const formatAmountValue = (value: number, locationVar: string): string => {
+export const formatAmountValue = (
+  value: number,
+  locationVar: string
+): string => {
   return value.toLocaleString(locationVar, {
     style: "currency",
-    currency: getcurrency(locationVar),
+    currency: getCurrency(locationVar),
   });
 };
 
-export default formatAmountValue;
+export const formatDate = (value: Date, locationVar: string): string => {
+  return value.toLocaleString(locationVar, {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};

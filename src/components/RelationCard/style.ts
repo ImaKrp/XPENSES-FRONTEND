@@ -21,12 +21,13 @@ export const Amount = styled.span`
 
 export const Container = styled.div`
   width: 100%;
+  border-radius: 1rem;
   height: fit-content;
   display: flex;
   flex-direction: column;
   padding: 2rem;
   animation: ${fromLeft} 0.5s;
-  box-shadow: 0 0.6rem 1.6rem 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.6rem 1.6rem 0 rgba(0, 0, 0, 0.8);
 
   > span {
     font-size: 1.4rem;

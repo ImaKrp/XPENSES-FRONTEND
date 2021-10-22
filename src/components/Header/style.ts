@@ -64,6 +64,9 @@ export const Menu = styled(Link)`
   > span {
     font-size: 2rem;
     cursor: pointer;
+    @media (max-width: 489px) {
+      display: none;
+    }
   }
 `;
 

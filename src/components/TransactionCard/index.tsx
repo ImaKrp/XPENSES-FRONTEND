@@ -10,25 +10,31 @@ import {
   AmountBtn,
   AmountInput,
 } from "./style";
-import { api } from "../../api/api";
+import Mask from "../../utils/masks";
+interface ITransactionProps {
+  createTransaction(
+    alias: string,
+    amount: string,
+    negative: boolean
+  ): Promise<void>;
+}
 
-export const TransactionCard: React.FC = () => {
-  const [alias, setAlias] = useState<string>();
-  const [amount, setAmount] = useState<string>();
+export const TransactionCard: React.FC<ITransactionProps> = ({
+  createTransaction,
+}) => {
+  const [alias, setAlias] = useState<string>("");
+  const [amount, setAmount] = useState<string>("");
   const [negative, setNegative] = useState<boolean>(false);
 
-  const createTransaction = async (e: any): Promise<void> => {
+  const handleSubmit = async (e: any): Promise<void> => {
     e.preventDefault();
-    await api.post("/transaction", {
-      alias: alias,
-      transaction: negative ? Number(amount) * -1 : Number(amount),
-    });
+    await createTransaction(alias, amount, negative);
     setAlias("");
     setAmount("");
   };
 
   return (
-    <Container onSubmit={(e) => createTransaction(e)}>
+    <Container onSubmit={(e) => handleSubmit(e)}>
       <Title>New Transaction</Title>
       <InputDiv>
         <Label>Name</Label>
@@ -52,7 +58,7 @@ export const TransactionCard: React.FC = () => {
           </AmountBtn>
           <AmountInput
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={(e) => setAmount(Mask.MoneyMask(e.target.value))}
             placeholder="Input the transaction value."
             type="number"
             step="any"

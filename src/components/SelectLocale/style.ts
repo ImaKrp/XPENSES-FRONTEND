@@ -16,6 +16,7 @@ export const SelectElement = styled.select`
   background-color: var(--black);
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, opacity 0.3s;
   text-transform: capitalize;
+  cursor: pointer;
   &:hover {
     opacity: 0.7;
     box-shadow: 0 0 0.8rem 0 rgba(0, 0, 0, 0.6);
