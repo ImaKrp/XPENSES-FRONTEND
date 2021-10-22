@@ -31,6 +31,7 @@ export const TransactionCard: React.FC<ITransactionProps> = ({
     await createTransaction(alias, amount, negative);
     setAlias("");
     setAmount("");
+    setNegative(false);
   };
 
   return (

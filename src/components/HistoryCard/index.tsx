@@ -8,9 +8,7 @@ interface IHistoryCardProps {
   date: string;
   id: string;
   negative: boolean;
-  deleteTransaction(
-    id: string,
-  ): Promise<void>;
+  deleteTransaction(id: string): Promise<void>;
 }
 
 export const HistoryCard: React.FC<IHistoryCardProps> = ({
@@ -18,7 +16,8 @@ export const HistoryCard: React.FC<IHistoryCardProps> = ({
   alias,
   amount,
   date,
-  id
+  id,
+  deleteTransaction
 }) => {
   return (
     <Container negative={negative}>
@@ -28,7 +27,7 @@ export const HistoryCard: React.FC<IHistoryCardProps> = ({
       </div>
       <div className="row">
         {amount}
-        <DeleteBtn>
+        <DeleteBtn onClick={() => deleteTransaction(id)}>
           <RiDeleteBin6Line />
         </DeleteBtn>
       </div>
