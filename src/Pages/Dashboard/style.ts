@@ -60,8 +60,27 @@ export const History = styled.div`
   @media (max-width: 750px) {
     width: 100%;
   }
+`;
 
+export const Scroll = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: inherit;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--b600);
+    border-radius: 3px;
+  }
 `;
 
 export const HistoryTitle = styled.h3`
@@ -72,3 +91,4 @@ export const HistoryTitle = styled.h3`
   margin-bottom: 2rem;
   margin-top: 2rem;
 `;
+

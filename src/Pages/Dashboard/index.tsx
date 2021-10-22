@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
-import { Container, Column, History, HistoryTitle } from "./style";
+import { Container, Column, History, HistoryTitle, Scroll } from "./style";
 import { TransactionCard } from "../../components/TransactionCard";
 import { RelationCard } from "../../components/RelationCard";
 import { HistoryCard } from "../../components/HistoryCard";
@@ -93,21 +93,26 @@ export const Dashboard: React.FC = () => {
       </Column>
       <History>
         <HistoryTitle>History</HistoryTitle>
-        {transactions &&
-          transactions.length > 0 &&
-          transactions.map((transaction, index) => {
-            return (
-              <HistoryCard
-                key={index}
-                alias={transaction.alias}
-                amount={formatAmountValue(transaction.value, user.region)}
-                date={formatDate(new Date(transaction.created_at), user.region)}
-                id={transaction.id}
-                negative={transaction.value < 0 ? true : false}
-                deleteTransaction={deleteTransaction}
-              />
-            );
-          })}
+        <Scroll>
+          {transactions &&
+            transactions.length > 0 &&
+            transactions.map((transaction, index) => {
+              return (
+                <HistoryCard
+                  key={index}
+                  alias={transaction.alias}
+                  amount={formatAmountValue(transaction.value, user.region)}
+                  date={formatDate(
+                    new Date(transaction.created_at),
+                    user.region
+                  )}
+                  id={transaction.id}
+                  negative={transaction.value < 0 ? true : false}
+                  deleteTransaction={deleteTransaction}
+                />
+              );
+            })}
+        </Scroll>
       </History>
     </Container>
   );
