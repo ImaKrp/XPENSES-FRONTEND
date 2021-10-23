@@ -54,6 +54,7 @@ export const Container = styled.div<IValueProps>`
     gap: 1rem;
     height: 100%;
     align-items: center;
+    width: fit-content;
     font-size: 1.8rem;
     color: ${({ negative }) => (negative ? "var(--red)" : "var(--green)")};
   }

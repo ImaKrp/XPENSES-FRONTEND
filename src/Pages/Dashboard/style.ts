@@ -17,6 +17,7 @@ const fromRight = keyframes`
 export const Container = styled.div`
   width: 100vw;
   min-height: calc(100vh - 8.4rem);
+  height: 100%;
   display: flex;
   padding: 0 3rem 3rem 3rem;
   align-items: center;
@@ -49,7 +50,8 @@ export const Column = styled.div`
 export const History = styled.div`
   min-width: 30rem;
   flex-grow: 1;
-  height: calc(100vh - 11.4rem);
+  min-height: calc(100vh - 11.4rem);
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding: 0 2rem 2rem 2rem;

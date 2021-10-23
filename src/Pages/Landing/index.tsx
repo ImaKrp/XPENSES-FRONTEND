@@ -8,8 +8,11 @@ import {
   Image,
   SingIn,
 } from "./style";
+import { useSession } from "../../hooks/useSession";
 
 export const Landing: React.FC = () => {
+  const { logged } = useSession();
+
   useEffect(() => {
     document.title = "XPENSEShelper";
   }, []);
@@ -24,7 +27,7 @@ export const Landing: React.FC = () => {
             A simple app trying to make your life easier as possible helping
             with your finances.
           </Subtitle>
-          <SingIn to="/signin">Get Started</SingIn>
+          <SingIn to={logged ? "/dashboard" : "/signin"}>Get Started</SingIn>
         </Column>
         <Image src="/images/Dashboard.png" />
       </Row>
