@@ -70,6 +70,7 @@ export const SessionProvider: React.FC = ({ children }) => {
       localStorage.setItem("@xpense:token", JSON.stringify(data.token));
 
       api.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
+      refreshUser();
       setLogged(true);
     } catch (err: IErrorProps | any) {
       if (
