@@ -49,6 +49,10 @@ export const Column = styled.div`
     height: auto;
     width: 100%;
   }
+
+  @media (max-height: 608px) {
+    height: auto;
+  }
 `;
 
 export const History = styled.div`
