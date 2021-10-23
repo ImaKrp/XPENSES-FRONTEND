@@ -24,6 +24,14 @@ export interface IDataProps {
   user: User;
 }
 
+export interface IErrorProps {
+  response: {
+    data: {
+      error: string;
+    };
+  };
+}
+
 export const SessionContext = createContext<ISessionContext>(
   {} as ISessionContext
 );
@@ -53,36 +61,41 @@ export const SessionProvider: React.FC = ({ children }) => {
     email: string,
     password: string
   ): Promise<string | void> => {
-    const { data } = await api.post<IDataProps>("/authenticate", {
-      email: email,
-      password: password,
-    });
+    try {
+      const { data } = await api.post<IDataProps>("/authenticate", {
+        email: email,
+        password: password,
+      });
+      localStorage.setItem("@xpense:user", JSON.stringify(data.user));
+      localStorage.setItem("@xpense:token", JSON.stringify(data.token));
 
-    if (data.error === "email" || data.error === "password") {
-      return data.error;
+      api.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
+      setLogged(true);
+    } catch (err: IErrorProps | any) {
+      if (
+        err.response.data.error === "email" ||
+        err.response.data.error === "password"
+      ) {
+        return err.response.data.error;
+      }
     }
-    console.log(data);
-    localStorage.setItem("@xpense:user", JSON.stringify(data.user));
-    localStorage.setItem("@xpense:token", JSON.stringify(data.token));
-
-    api.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
-    setLogged(true);
   };
 
   const signUp = async (
     email: string,
     password: string
   ): Promise<string | void> => {
-    const { data } = await api.post<IDataProps>("/register", {
-      email: email,
-      password: password,
-    });
-    console.log(data);
-    if (data.error === "email") {
-      return data.error;
+    try {
+      await api.post<IDataProps>("/register", {
+        email: email,
+        password: password,
+      });
+      await signIn(email, password);
+    } catch (err: IErrorProps | any) {
+      if (err.response.data.error === "email") {
+        return err.response.data.error;
+      }
     }
-
-    await signIn(email, password);
   };
 
   const signOut = (): void => {
