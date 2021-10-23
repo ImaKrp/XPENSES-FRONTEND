@@ -56,6 +56,11 @@ export const Card = styled.form`
   border-radius: 0.8rem;
   padding: 2.5rem;
   animation: ${fromBottom} 0.5s;
+  margin-bottom: 2rem;
+  background-color: var(--black);
+  @media (max-width: 400px){
+    width: 100%;
+  }
 `;
 
 export const Input = styled.input<IInputProps>`
