@@ -29,6 +29,10 @@ export const Container = styled.div`
     align-items: flex-start;
     flex-wrap: wrap;
   }
+
+  @media (max-height: 608px) {
+    height: 52.4rem;
+  }
 `;
 
 export const Column = styled.div`
@@ -93,4 +97,3 @@ export const HistoryTitle = styled.h3`
   margin-bottom: 2rem;
   margin-top: 2rem;
 `;
-
