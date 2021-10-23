@@ -7,15 +7,15 @@ import {
   Label,
   SpanError,
   SubmitBtn,
-  Title
+  Title,
 } from "./style";
 import { useSession } from "../../../hooks/useSession";
 
 export const SignUp: React.FC = () => {
   useEffect(() => {
-    document.title = "XPENSE Sing Up"
- }, []);
-  
+    document.title = "XPENSE Sing Up";
+  }, []);
+
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [password, setPassword] = useState("");
@@ -28,14 +28,14 @@ export const SignUp: React.FC = () => {
 
   const handleEmailChange = (value: string) => {
     setEmail(value);
-    setEmailError(value ? "" : "⨉ Você deve inserir seu e-mail.");
+    setEmailError(value ? "" : "⨉ Input your e-mail address.");
     if (!verifyEmail) return;
     setVerifyEmailError(
       value
         ? value === verifyEmail
           ? ""
-          : "⨉ Os endereços de e-mail não correspondem."
-        : "⨉ Você deve confirmar seu e-mail."
+          : "⨉ The e-mail addresses are't the same."
+        : "⨉ Verify your e-mail."
     );
   };
 
@@ -45,8 +45,8 @@ export const SignUp: React.FC = () => {
       value
         ? value === email
           ? ""
-          : "⨉ Os endereços de e-mail não correspondem."
-        : "⨉ Você deve confirmar seu e-mail."
+          : "⨉ The e-mail addresses are't the same."
+        : "⨉ Verify your e-mail."
     );
   };
 
@@ -56,21 +56,21 @@ export const SignUp: React.FC = () => {
       value
         ? value === password
           ? ""
-          : "⨉ As senhas não correspondem."
-        : "⨉ Você deve confirmar sua senha."
+          : "⨉ The passwords are't the same."
+        : "⨉ Verify your password."
     );
   };
 
   const handlePasswordChange = (value: string) => {
     setPassword(value);
-    setPasswordError(value ? "" : "⨉ Você precisa inserir uma senha.");
+    setPasswordError(value ? "" : "⨉ Input your password.");
     if (!verifyPassword) return;
     setVerifyPasswordError(
       value
         ? value === verifyPassword
           ? ""
-          : "⨉ As senhas não correspondem."
-        : "⨉ Você deve confirmar sua senha."
+          : "⨉ The passwords are't the same."
+        : "⨉ Verify your password."
     );
   };
 
