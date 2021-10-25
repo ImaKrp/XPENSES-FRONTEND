@@ -51,7 +51,7 @@ Now you read it's [README.md](https://github.com/ImaKrp/XPENSES-BACKEND/blob/mai
 
 |                                              Landing XPENSES                                               |                                              Dashboard XPENSES                                               |
 | :--------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------: |
-| ![menu-esong](https://raw.githubusercontent.com/ImaKrp/XPENSES-FRONTEND/master/public/readme-images/1.png) | ![player-esong](https://raw.githubusercontent.com/ImaKrp/XPENSES-FRONTEND/master/public/readme-images/2.png) |
+| ![landing-xpenses](https://raw.githubusercontent.com/ImaKrp/XPENSES-FRONTEND/master/public/readme-images/1.png) | ![dashboard-xpenses](https://raw.githubusercontent.com/ImaKrp/XPENSES-FRONTEND/master/public/readme-images/2.png) |
 
 ```sh
 yarn start
