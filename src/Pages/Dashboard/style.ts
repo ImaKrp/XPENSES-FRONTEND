@@ -31,7 +31,7 @@ export const Container = styled.div`
   }
 
   @media (max-height: 608px) {
-    height: 52.4rem;
+    height: 55.4rem;
   }
 `;
 
