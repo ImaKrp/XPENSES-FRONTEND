@@ -49,6 +49,10 @@ Now you read it's [README.md](https://github.com/ImaKrp/XPENSES-BACKEND/blob/mai
 1. On compile it will start the frontend on localhost.
 2. It will be acessible at http://localhost:3000.
 
+|                                              Landing XPENSES                                               |                                              Dashboard XPENSES                                               |
+| :--------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------: |
+| ![menu-esong](https://raw.githubusercontent.com/ImaKrp/XPENSES-FRONTEND/master/public/readme-images/1.png) | ![player-esong](https://raw.githubusercontent.com/ImaKrp/XPENSES-FRONTEND/master/public/readme-images/2.png) |
+
 ```sh
 yarn start
 ```
