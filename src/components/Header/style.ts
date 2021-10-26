@@ -44,7 +44,7 @@ export const Container = styled.div`
 
 export const Group = styled.div`
   width: fit-content;
-  height: fit-content;
+  height: 3.8rem;
   display: flex;
   align-items: center;
   animation: ${fromRight} 0.5s;
