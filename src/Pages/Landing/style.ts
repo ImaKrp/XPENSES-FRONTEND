@@ -61,6 +61,9 @@ export const Title = styled.h1`
   @media (max-width: 510px) {
     font-size: 6rem;
   }
+  @media (max-height: 750px) {
+    font-size: 8rem;
+  }
 `;
 
 export const Subtitle = styled.h1`
@@ -77,6 +80,9 @@ export const Subtitle = styled.h1`
   }
   @media (max-width: 510px) {
     width: 80%;
+  }
+  @media (max-height: 750px) {
+    font-size: 2.6rem;
   }
 `;
 

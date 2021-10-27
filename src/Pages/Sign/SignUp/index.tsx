@@ -34,7 +34,7 @@ export const SignUp: React.FC = () => {
       value
         ? value === verifyEmail
           ? ""
-          : "⨉ The e-mail addresses are't the same."
+          : "⨉ The e-mail addresses aren't the same."
         : "⨉ Verify your e-mail."
     );
   };
@@ -45,7 +45,7 @@ export const SignUp: React.FC = () => {
       value
         ? value === email
           ? ""
-          : "⨉ The e-mail addresses are't the same."
+          : "⨉ The e-mail addresses aren't the same."
         : "⨉ Verify your e-mail."
     );
   };
@@ -56,7 +56,7 @@ export const SignUp: React.FC = () => {
       value
         ? value === password
           ? ""
-          : "⨉ The passwords are't the same."
+          : "⨉ The passwords aren't the same."
         : "⨉ Verify your password."
     );
   };
@@ -69,7 +69,7 @@ export const SignUp: React.FC = () => {
       value
         ? value === verifyPassword
           ? ""
-          : "⨉ The passwords are't the same."
+          : "⨉ The passwords aren't the same."
         : "⨉ Verify your password."
     );
   };

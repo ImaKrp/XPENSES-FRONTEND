@@ -30,7 +30,7 @@ export const Container = styled.div`
     flex-wrap: wrap;
   }
 
-  @media (max-height: 608px) {
+  @media (max-height: 638px) {
     height: 55.4rem;
   }
 `;
@@ -50,7 +50,7 @@ export const Column = styled.div`
     width: 100%;
   }
 
-  @media (max-height: 608px) {
+  @media (max-height: 638px) {
     height: auto;
   }
 `;

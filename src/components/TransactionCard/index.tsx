@@ -42,7 +42,7 @@ export const TransactionCard: React.FC<ITransactionProps> = ({
         <Input
           value={alias}
           onChange={(e) => setAlias(e.target.value)}
-          placeholder="Input the transaction value."
+          placeholder="Input the transaction name."
           type="text"
           required
         />
