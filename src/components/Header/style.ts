@@ -68,6 +68,23 @@ export const Menu = styled(Link)`
       display: none;
     }
   }
+
+  @media (max-width: 425px) {
+    font-size: 2.6rem;
+  }
+
+  @media (max-width: 405px) {
+    font-size: 2.4rem;
+  }
+  @media (max-width: 395px) {
+    font-size: 2.2rem;
+  }
+  @media (max-width: 385px) {
+    font-size: 2.1rem;
+  }
+  @media (max-width: 375px) {
+    font-size: 2rem;
+  }
 `;
 
 export const Redirect = styled(Link)`
