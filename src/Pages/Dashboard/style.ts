@@ -16,7 +16,8 @@ const fromRight = keyframes`
 
 export const Container = styled.div`
   width: 100vw;
-  height: calc(100vh - 8.4rem);
+  min-height: calc(100vh - 8.4rem);
+  height: 100%;
   display: flex;
   padding: 0 3rem 3rem 3rem;
   align-items: center;
@@ -27,10 +28,6 @@ export const Container = styled.div`
     padding: 2rem 3rem;
     align-items: flex-start;
     flex-wrap: wrap;
-  }
-
-  @media (max-height: 638px) {
-    height: 55.4rem;
   }
 `;
 
@@ -57,8 +54,7 @@ export const Column = styled.div`
 export const History = styled.div`
   min-width: 30rem;
   flex-grow: 1;
-  min-height: calc(100vh - 11.4rem);
-  height: 100%;
+  height: calc(100vh - 11.4rem);
   display: flex;
   flex-direction: column;
   padding: 0 2rem 2rem 2rem;
