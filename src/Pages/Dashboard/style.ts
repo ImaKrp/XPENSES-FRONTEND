@@ -16,8 +16,7 @@ const fromRight = keyframes`
 
 export const Container = styled.div`
   width: 100vw;
-  min-height: calc(100vh - 8.4rem);
-  height: 100%;
+  height: calc(100vh - 8.4rem);
   display: flex;
   padding: 0 3rem 3rem 3rem;
   align-items: center;
