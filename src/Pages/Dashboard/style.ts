@@ -54,6 +54,7 @@ export const Column = styled.div`
 export const History = styled.div`
   min-width: 30rem;
   flex-grow: 1;
+  min-height: 52.4rem; 
   height: calc(100vh - 11.4rem);
   display: flex;
   flex-direction: column;
