@@ -47,14 +47,18 @@ export const SessionProvider: React.FC = ({ children }) => {
   const [token, setToken] = useState(
     localStorage.getItem("@xpense:token") ?? ""
   );
+  const [logged, setLogged] = useState<boolean>(false);
 
   useEffect(() => {
     if (!user || !token) return;
-    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-    setLogged(true);
-  }, [user, token]);
 
-  const [logged, setLogged] = useState<boolean>(false);
+    if (!logged)
+      api.defaults.headers.common["Authorization"] = `Bearer ${JSON.parse(
+        token
+      )}`;
+
+    setLogged(true);
+  }, [user, token, logged]);
 
   const signIn = async (
     email: string,
@@ -65,13 +69,14 @@ export const SessionProvider: React.FC = ({ children }) => {
         email: email,
         password: password,
       });
+
+      setLogged(true);
       localStorage.setItem("@xpense:user", JSON.stringify(data.user));
       localStorage.setItem("@xpense:token", JSON.stringify(data.token));
       setUser(JSON.stringify(data.user));
       setToken(data.token);
 
       api.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
-      setLogged(true);
     } catch (err: IErrorProps | any) {
       if (
         err?.response?.data?.error === "email" ||
@@ -102,6 +107,8 @@ export const SessionProvider: React.FC = ({ children }) => {
   const signOut = (): void => {
     localStorage.removeItem("@xpense:user");
     localStorage.removeItem("@xpense:token");
+    setUser({});
+    setToken("");
     setLogged(false);
   };
 
