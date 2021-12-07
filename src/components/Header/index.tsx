@@ -7,10 +7,12 @@ import RelationLocaleCurrency from "../../utils/RelationLocaleCurrency";
 import { api } from "../../api/api";
 
 export const Header: React.FC = () => {
-  const { logged, signOut, refreshUser, user } = useSession();
+  const { logged, signOut, user } = useSession();
   const userRegion = user?.region;
 
-  const [selectedLocale, setSelectedLocale] = useState<string>(userRegion);
+  const [selectedLocale, setSelectedLocale] = useState<string | undefined>(
+    userRegion
+  );
   const location = useLocation();
   const actualPathname = location.pathname;
 
@@ -39,7 +41,6 @@ export const Header: React.FC = () => {
     };
     updateLocationDB(value);
     localStorage.setItem("@xpense:user", JSON.stringify(data.user));
-    refreshUser()
     setSelectedLocale(value);
   };
 

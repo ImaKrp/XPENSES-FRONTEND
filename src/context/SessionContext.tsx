@@ -1,21 +1,27 @@
-import React, { createContext, useState, useMemo, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { api } from "../api/api";
 
 export interface ISessionContext {
   logged: boolean;
   signIn(email: string, password: string): Promise<string | void>;
   signUp(email: string, password: string): Promise<string | void>;
+  updateUser(object: IUpdateData): void;
   signOut(): void;
-  refreshUser(): void;
   token: string | null;
   user: User;
 }
 
+interface IUpdateData {
+  region?: string;
+  email?: string;
+  password?: string;
+}
+
 interface User {
-  id: string;
-  email: string;
-  password: string;
-  region: string;
+  id?: string;
+  email?: string;
+  password?: string;
+  region?: string;
 }
 
 export interface IDataProps {
@@ -37,15 +43,10 @@ export const SessionContext = createContext<ISessionContext>(
 );
 
 export const SessionProvider: React.FC = ({ children }) => {
-  const token = localStorage.getItem("@xpense:token") ?? "";
-  const [changed, setChanged] = useState<boolean>(false);
-
-  const user = useMemo(() => {
-    if (changed || !changed) {
-      const storedUser = localStorage.getItem("@xpense:user");
-      if (storedUser) return JSON.parse(storedUser);
-    }
-  }, [changed]);
+  const [user, setUser] = useState(localStorage.getItem("@xpense:user") ?? {});
+  const [token, setToken] = useState(
+    localStorage.getItem("@xpense:token") ?? ""
+  );
 
   useEffect(() => {
     if (!user || !token) return;
@@ -68,9 +69,10 @@ export const SessionProvider: React.FC = ({ children }) => {
       });
       localStorage.setItem("@xpense:user", JSON.stringify(data.user));
       localStorage.setItem("@xpense:token", JSON.stringify(data.token));
+      setUser(JSON.stringify(data.user));
+      setToken(data.token);
 
       api.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
-      refreshUser();
       setLogged(true);
     } catch (err: IErrorProps | any) {
       if (
@@ -105,13 +107,17 @@ export const SessionProvider: React.FC = ({ children }) => {
     setLogged(false);
   };
 
-  const refreshUser = (): void => {
-    setChanged(!changed);
+  const updateUser = (object: IUpdateData): void => {
+    let updateData: IUpdateData = { ...user };
+    object.email && (updateData.email = object.email);
+    object.region && (updateData.region = object.region);
+    object.password && (updateData.password = object.password);
+    setUser(updateData);
   };
 
   return (
     <SessionContext.Provider
-      value={{ logged, signIn, signOut, signUp, refreshUser, token, user }}
+      value={{ logged, signIn, signOut, signUp, token, user, updateUser }}
     >
       {children}
     </SessionContext.Provider>

@@ -84,9 +84,9 @@ export const Dashboard: React.FC = () => {
     <Container>
       <Column>
         <RelationCard
-          incomeValue={formatAmountValue(gains, user.region)}
-          expenseValue={formatAmountValue(expenses, user.region)}
-          totalBalance={formatAmountValue(balance, user.region)}
+          incomeValue={formatAmountValue(gains, user?.region)}
+          expenseValue={formatAmountValue(expenses, user?.region)}
+          totalBalance={formatAmountValue(balance, user?.region)}
           currency={userCurrency}
         />
         <TransactionCard createTransaction={createTransaction} />
@@ -101,10 +101,10 @@ export const Dashboard: React.FC = () => {
                 <HistoryCard
                   key={index}
                   alias={transaction.alias}
-                  amount={formatAmountValue(transaction.value, user.region)}
+                  amount={formatAmountValue(transaction.value, user?.region)}
                   date={formatDate(
                     new Date(transaction.created_at),
-                    user.region
+                    user?.region
                   )}
                   id={transaction.id}
                   negative={transaction.value < 0 ? true : false}
