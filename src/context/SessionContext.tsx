@@ -50,9 +50,7 @@ export const SessionProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     if (!user || !token) return;
-    api.defaults.headers.common["Authorization"] = `Bearer ${JSON.parse(
-      token
-    )}`;
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     setLogged(true);
   }, [user, token]);
 
@@ -76,10 +74,10 @@ export const SessionProvider: React.FC = ({ children }) => {
       setLogged(true);
     } catch (err: IErrorProps | any) {
       if (
-        err.response.data.error === "email" ||
-        err.response.data.error === "password"
+        err?.response?.data?.error === "email" ||
+        err?.response?.data?.error === "password"
       ) {
-        return err.response.data.error;
+        return err?.response?.data?.error;
       }
     }
   };
@@ -95,8 +93,8 @@ export const SessionProvider: React.FC = ({ children }) => {
       });
       await signIn(email, password);
     } catch (err: IErrorProps | any) {
-      if (err.response.data.error === "email") {
-        return err.response.data.error;
+      if (err?.response?.data?.error === "email") {
+        return err?.response?.data?.error;
       }
     }
   };
