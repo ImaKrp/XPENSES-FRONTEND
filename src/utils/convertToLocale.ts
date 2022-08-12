@@ -23,7 +23,7 @@ export const formatDate = (
   value: Date,
   locationVar: string | undefined
 ): string => {
-  return value.toLocaleString(locationVar ?? "en-US", {
+  return value.toLocaleString(locationVar || "en-US", {
     weekday: "long",
     year: "numeric",
     month: "long",

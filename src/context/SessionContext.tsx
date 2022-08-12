@@ -69,14 +69,10 @@ export const SessionProvider: React.FC = ({ children }) => {
         email: email,
         password: password,
       });
-
-      setLogged(true);
       localStorage.setItem("@xpense:user", JSON.stringify(data.user));
       localStorage.setItem("@xpense:token", JSON.stringify(data.token));
       setUser(JSON.stringify(data.user));
       setToken(data.token);
-
-      api.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
     } catch (err: IErrorProps | any) {
       if (
         err?.response?.data?.error === "email" ||
